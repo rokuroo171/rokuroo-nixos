@@ -66,6 +66,11 @@ let
           enable = true;
         };
       };
+      security = {
+        polkit = {
+          enable = true;
+        };
+      };
       services = {
         displayManager = {
           sddm = {

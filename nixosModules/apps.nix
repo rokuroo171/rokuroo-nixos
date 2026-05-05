@@ -18,7 +18,16 @@
         pkgs.nmap
         pkgs.iputils
         pkgs.dnsutils
+        pkgs.nautilus
       ];
+    };
+    services = {
+      gvfs = {
+        enable = true;
+      };
+      tumbler = {
+        enable = true;
+      };
     };
   };
 }
