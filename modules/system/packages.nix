@@ -4,6 +4,12 @@
   ...
 }: {
   environment = {
+    # required by home-manager xdg.portal when useUserPackages is enabled,
+    # so portal definitions and DE-provided configs get linked into the profile
+    pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
+    ];
     systemPackages = [
       # xdg portals
       pkgs.xdg-desktop-portal

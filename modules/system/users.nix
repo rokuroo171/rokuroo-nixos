@@ -3,6 +3,14 @@
   pkgs,
   ...
 }: {
+  # the user's login shell is fish; enabling it system-wide ensures the
+  # shell gets the proper nix paths in its environment
+  programs = {
+    fish = {
+      enable = true;
+    };
+  };
+
   users = {
     users = {
       rokuroo = {

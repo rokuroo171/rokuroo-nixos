@@ -4,8 +4,7 @@
   ...
 }: {
   networking = {
-    # hostname (set in host files)
-    hostName = "reverie";
+    # hostname is set per-host in hosts/<host>/default.nix
     # network manager
     networkmanager = {
       enable = true;

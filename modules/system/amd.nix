@@ -7,9 +7,11 @@
     graphics = {
       enable = true;
     };
-    # amd gpu driver
+    # amd gpu driver (load amdgpu early via initrd)
     amdgpu = {
-      enable = true;
+      initrd = {
+        enable = true;
+      };
     };
   };
 
