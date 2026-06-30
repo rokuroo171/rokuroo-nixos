@@ -2,9 +2,7 @@
   config,
   pkgs,
   home-manager,
-  noctalia,
-  niri-flake,
-  lazyvim,
+  inputs,
   ...
 }: {
   imports = [
@@ -28,11 +26,11 @@
   programs.fish.enable = true;
 
   home-manager = {
-    extraSpecialArgs = { inherit noctalia niri-flake lazyvim; };
+    extraSpecialArgs = { inherit inputs; };
     users.rokuroo = {
       imports = [
-        noctalia.homeModules.default
-        niri-flake.homeModules.niri
+        inputs.noctalia.homeModules.default
+        inputs.niri-flake.homeModules.niri
         ../../modules/home/apps.nix
         ../../modules/home/theme.nix
         ../../modules/home/packages.nix

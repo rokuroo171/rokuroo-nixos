@@ -3,8 +3,7 @@
   pkgs,
   home-manager,
   hyprland,
-  lazyvim,
-  caelestia-shell,
+  inputs,
   ...
 }: {
   imports = [
@@ -30,7 +29,7 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   programs.uwsm = {
@@ -47,7 +46,7 @@
   environment.systemPackages = [ pkgs.xdg-desktop-portal-hyprland ];
 
   home-manager = {
-    extraSpecialArgs = { inherit hyprland lazyvim caelestia-shell; };
+    extraSpecialArgs = { inherit inputs; };
     users.rokuroo = {
       imports = [
         ../../modules/home/apps.nix
@@ -67,7 +66,7 @@
         withPython3 = false;
       };
 
-      wayland.windowManager.hyprland.package = hyprland.packages.${pkgs.system}.hyprland;
+      wayland.windowManager.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
 }
