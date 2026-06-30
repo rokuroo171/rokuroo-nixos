@@ -44,25 +44,27 @@
 
   environment.systemPackages = [ pkgs.xdg-desktop-portal-hyprland ];
 
-  home-manager.users.rokuroo = {
-    imports = [
-      ../../modules/home/apps.nix
-      ../../modules/home/theme.nix
-      ../../modules/home/packages.nix
-      ../../modules/home/editor.nix
-      ../../modules/home/terminal.nix
-      ../../modules/home/hyprland.nix
-    ];
+  home-manager = {
+    extraSpecialArgs = { inherit hyprland lazyvim caelestia-shell; };
+    users.rokuroo = {
+      imports = [
+        ../../modules/home/apps.nix
+        ../../modules/home/theme.nix
+        ../../modules/home/packages.nix
+        ../../modules/home/editor.nix
+        ../../modules/home/terminal.nix
+        ../../modules/home/hyprland.nix
+      ];
 
-    nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnfree = true;
 
-    home.stateVersion = "26.05";
+      home.stateVersion = "26.05";
 
-    programs.neovim = {
-      withRuby = false;
-      withPython3 = false;
+      programs.neovim = {
+        withRuby = false;
+        withPython3 = false;
+      };
+
+      wayland.windowManager.hyprland.package = hyprland.packages.${pkgs.system}.hyprland;
     };
-
-    wayland.windowManager.hyprland.package = hyprland.packages.${pkgs.system}.hyprland;
   };
-}
