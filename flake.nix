@@ -28,17 +28,17 @@
     extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, silentSDDM, noctalia, niri-flake, ... }: {
+  outputs = { self, nixpkgs, home-manager, hyprland, silentSDDM, noctalia, niri-flake, lazyvim, caelestia-shell, ... }: {
     nixosConfigurations = {
       reverie = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager hyprland silentSDDM; };
+        specialArgs = { inherit home-manager hyprland silentSDDM lazyvim caelestia-shell; };
         modules = [
           { nixpkgs.config.allowUnfree = true; }
           ./hosts/reverie
         ];
       };
       opal = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager silentSDDM noctalia niri-flake; };
+        specialArgs = { inherit home-manager silentSDDM noctalia niri-flake lazyvim; };
         modules = [
           { nixpkgs.config.allowUnfree = true; }
           ./hosts/opal
