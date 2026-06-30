@@ -11,6 +11,7 @@
     ../../modules/home/editor.nix
     ../../modules/home/terminal.nix
     ../../modules/home/hyprland.nix
+    ../../modules/home/caelestia.nix
   ];
 
   home = {

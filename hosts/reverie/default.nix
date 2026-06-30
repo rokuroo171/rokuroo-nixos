@@ -25,6 +25,21 @@
 
   system.stateVersion = "26.05";
 
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors.hyprland = {
+      prettyName = "Hyprland";
+      comment = "Hyprland via UWSM";
+      binPath = "/run/current-system/sw/bin/Hyprland";
+    };
+  };
+
   programs.fish.enable = true;
 
   environment.systemPackages = [ pkgs.xdg-desktop-portal-hyprland ];

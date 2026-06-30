@@ -10,12 +10,17 @@
 
   services = {
     displayManager = {
-      # login manager
       sddm = {
         enable = true;
         wayland = {
           enable = true;
         };
+	settings = {
+	  General = {
+	    CursorTheme = "Adwaita";
+	    EnableHiDPI = false;
+	  };
+	};
       };
     };
   };
