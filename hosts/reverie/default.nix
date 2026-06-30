@@ -3,6 +3,8 @@
   pkgs,
   home-manager,
   hyprland,
+  lazyvim,
+  caelestia-shell,
   ...
 }: {
   imports = [
@@ -68,3 +70,4 @@
       wayland.windowManager.hyprland.package = hyprland.packages.${pkgs.system}.hyprland;
     };
   };
+}

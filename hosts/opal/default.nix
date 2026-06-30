@@ -4,6 +4,7 @@
   home-manager,
   noctalia,
   niri-flake,
+  lazyvim,
   ...
 }: {
   imports = [
@@ -87,3 +88,4 @@
       };
     };
   };
+}
