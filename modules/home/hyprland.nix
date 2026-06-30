@@ -16,7 +16,6 @@
 	    "caelestia shell -d"
 	  ];
 	  env = [
-	    "LIBVA_DRIVER_NAME,nouveau"
 	    "NIXOS_OZONE_WL,1"
 	  ];
 	  misc = {

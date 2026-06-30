@@ -1,11 +1,11 @@
 {
   config,
   pkgs,
-  silentSDDM,
+  inputs,
   ...
 }: {
   imports = [
-    silentSDDM.nixosModules.default
+    inputs.silentSDDM.nixosModules.default
   ];
 
   services = {

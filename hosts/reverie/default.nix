@@ -1,8 +1,8 @@
 {
   config,
   pkgs,
+  lib,
   home-manager,
-  hyprland,
   inputs,
   ...
 }: {
@@ -55,6 +55,7 @@
         ../../modules/home/editor.nix
         ../../modules/home/terminal.nix
         ../../modules/home/hyprland.nix
+        ../../modules/home/caelestia.nix
       ];
 
       nixpkgs.config.allowUnfree = true;
@@ -62,8 +63,8 @@
       home.stateVersion = "26.05";
 
       programs.neovim = {
-        withRuby = false;
-        withPython3 = false;
+        withRuby = lib.mkForce false;
+        withPython3 = lib.mkForce false;
       };
 
       wayland.windowManager.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;

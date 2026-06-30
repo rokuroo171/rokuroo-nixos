@@ -1,24 +1,5 @@
-{
-  config,
-  pkgs,
-  noctalia,
-  niri-flake,
-  ...
-}: {
-  imports = [
-    niri-flake.homeModules.niri
-  ];
-
-  home = {
-    stateVersion = "26.05";
-  };
-
-  programs.niri = {
-    enable = true;
-    settings = {
-      spawn-at-startup = [ { command = [ "noctalia-shell" ]; } ];
-    };
-  };
+{ inputs, ... }: {
+  imports = [ inputs.noctalia-shell.homeModules.default ];
 
   programs.noctalia-shell = {
     enable = true;

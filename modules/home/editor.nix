@@ -10,7 +10,7 @@
       lang.nix.enable = true;
       lang.go = {
        enable = true;
-       installCoreDependencies = true;
+       installDependencies = true;
       };
       lang.markdown.enable = true;
       lang.json.enable = true;
@@ -29,26 +29,26 @@
     config = {
       options = ''
         vim.opt.relativenumber = true
-	vim.opt.tabstop = 2
-	vim.opt.shiftwidth = 2
-	vim.opt.expandtab = true
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.expandtab = true
       '';
     };
 
     plugins = {
       colorscheme = ''
         return {
-        "catppucin/nvim",
-	opts = { flavour = mocha },
-	}
+          "catppuccin/nvim",
+          opts = { flavour = "mocha" },
+        }
       '';
 
       # vsc problem panel (extra)
       trouble = ''
         return {
-	  "folke/trouble.nvim",
-	  opts = {},
-	}
+          "folke/trouble.nvim",
+          opts = {},
+        }
       '';
     };
   };
