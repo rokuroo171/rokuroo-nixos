@@ -3,14 +3,14 @@
 
   programs.lazyvim = {
     enable = true;
-    installCoreDepencies = true;
+    installCoreDependencies = true;
 
     extras = {
       # Languages
       lang.nix.enable = true;
       lang.go = {
        enable = true;
-       installCoreDepencies = true;
+       installCoreDependencies = true;
       };
       lang.markdown.enable = true;
       lang.json.enable = true;
