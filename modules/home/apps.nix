@@ -7,7 +7,7 @@
   home = {
     packages = [
       inputs.zen-browser.packages.${pkgs.system}.default
-      inputs.claude-for-linux.packages.${pkgs.system}.default
+      inputs.claude-cowork-nix.packages.${pkgs.system}.default
       pkgs.obsidian
       pkgs.notion-app-enhanced
       pkgs.appimage-run
