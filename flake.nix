@@ -3,10 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    home-manager.url = "github:nix-community/home-manager/release-26.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    silentSDDM.url = "github:uiriansan/SilentSDDM";
-    silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia-shell = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +19,10 @@
     niri-flake.inputs.nixpkgs.follows = "nixpkgs";
     lazyvim = {
       url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -31,6 +39,9 @@
         modules = [
           { nixpkgs.config.allowUnfree = true; }
           ./hosts/reverie
+	  {
+	    home-manager.extraSpecialArgs = { inherit inputs; };
+	  }
         ];
       };
       opal = nixpkgs.lib.nixosSystem {
@@ -38,6 +49,9 @@
         modules = [
           { nixpkgs.config.allowUnfree = true; }
           ./hosts/opal
+	  {
+	    home-manager.extraSpecialArgs = { inherit inputs; };
+	  }
         ];
       };
     };
