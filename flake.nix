@@ -25,8 +25,8 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    claude-desktop = {
-      url = "github:k3d3/claude-desktop-linux-flake";
+    claude-for-linux = {
+      url = "github:heytcass/claude-for-linux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -25,6 +25,10 @@
     ];
   };
 
+  programs.nix-ld = {
+    enable = true;
+  };
+
   services = {
     # file manager services
     gvfs = {
