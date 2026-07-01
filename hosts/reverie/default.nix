@@ -26,24 +26,7 @@
 
   system.stateVersion = "26.05";
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors.hyprland = {
-      prettyName = "Hyprland";
-      comment = "Hyprland via UWSM";
-      binPath = "/run/current-system/sw/bin/Hyprland";
-    };
-  };
-
   programs.fish.enable = true;
-
-  environment.systemPackages = [ pkgs.xdg-desktop-portal-hyprland ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -54,8 +37,7 @@
         ../../modules/home/packages.nix
         ../../modules/home/editor.nix
         ../../modules/home/terminal.nix
-        ../../modules/home/hyprland.nix
-        ../../modules/home/caelestia.nix
+        ../../modules/home/plasma.nix
       ];
 
       nixpkgs.config.allowUnfree = true;
@@ -66,8 +48,6 @@
         withRuby = lib.mkForce false;
         withPython3 = lib.mkForce false;
       };
-
-      wayland.windowManager.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
 }

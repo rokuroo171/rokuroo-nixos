@@ -3,18 +3,15 @@
   pkgs,
   ...
 }: {
-  services.xserver.videoDrivers = [ "intel" "nouveau" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+    modesetting.enable = true;
+  };
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      intel-vaapi-driver
-      libva-vdpau-driver
-      libvdpau-va-gl
-    ];
   };
-
-  boot.kernelParams = [ "nouveau.config=NvGspRm=0" ];
 }
