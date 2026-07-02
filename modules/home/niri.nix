@@ -4,7 +4,7 @@
   programs.niri = {
     enable = true;
     settings = {
-      spawn-at-startup = [ { command = [ "noctalia-shell" ]; } ];
+      spawn-at-startup = [ { command = [ "noctalia" ]; } ];
     };
   };
 }

@@ -24,6 +24,8 @@
 
   system.stateVersion = "26.05";
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   programs.fish.enable = true;
 
   home-manager = {

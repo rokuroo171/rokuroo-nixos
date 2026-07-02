@@ -4,11 +4,12 @@
   lib,
   home-manager,
   inputs,
+  minegrub-world-sel-theme,
   ...
 }: {
   imports = [
     ../../hardware-configuration.nix
-    ../../modules/system/boot.nix
+    ../../modules/system/boot-grub.nix
     ../../modules/system/nvidia.nix
     ../../modules/system/audio.nix
     ../../modules/system/network.nix
@@ -18,6 +19,7 @@
     ../../modules/system/display.nix
     ../../modules/system/packages.nix
     home-manager.nixosModules.home-manager
+    minegrub-world-sel-theme.nixosModules.default
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
@@ -25,6 +27,8 @@
   networking.hostName = "reverie";
 
   system.stateVersion = "26.05";
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.fish.enable = true;
 

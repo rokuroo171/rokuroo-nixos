@@ -20,6 +20,7 @@
       pkgs.nmap
       pkgs.iputils
       pkgs.dnsutils
+      pkgs.efibootmgr
       pkgs.nautilus
       pkgs.nerd-fonts.jetbrains-mono
       pkgs.go
@@ -44,13 +45,13 @@
       mesa
       alsa-lib
       expat
-      xorg.libX11
-      xorg.libxcb
-      xorg.libXcomposite
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXrandr
+      libx11
+      libxcb
+      libxcomposite
+      libxdamage
+      libxext
+      libxfixes
+      libxrandr
       gtk3
       pango
       cairo

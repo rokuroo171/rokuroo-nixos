@@ -11,8 +11,8 @@
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia-shell = {
-      url = "github:noctalia-dev/noctalia-shell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-flake = {
@@ -31,6 +31,10 @@
       url = "github:Reginleif88/claude-cowork-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    minegrub-world-sel-theme = {
+      url = "github:Lxtharia/minegrub-world-sel-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -38,10 +42,10 @@
     extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, minegrub-world-sel-theme, ... }: {
     nixosConfigurations = {
       reverie = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager inputs; };
+        specialArgs = { inherit home-manager inputs minegrub-world-sel-theme; };
         modules = [
           { nixpkgs.config.allowUnfree = true; }
           ./hosts/reverie
@@ -51,7 +55,7 @@
         ];
       };
       opal = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager inputs; };
+        specialArgs = { inherit home-manager inputs minegrub-world-sel-theme; };
         modules = [
           { nixpkgs.config.allowUnfree = true; }
           ./hosts/opal
